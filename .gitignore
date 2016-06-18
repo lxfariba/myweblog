@@ -5,3 +5,8 @@ weblog_db
 *.pyc
 *__pycache__*
 
+# python and virtualenv specific
+env
+
+# Pycharm specific
+.idea
