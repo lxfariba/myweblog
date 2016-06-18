@@ -1,0 +1,7 @@
+# django specific
+static
+media
+weblog_db
+*.pyc
+*__pycache__*
+
