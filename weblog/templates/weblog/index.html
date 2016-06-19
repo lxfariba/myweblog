@@ -1,0 +1,18 @@
+{% extends 'weblog/base.html' %}
+
+
+{% block main%}
+	<div>
+		<h3>Welcom!</h3>
+		{% if contents %}
+		<ul>
+			{%for content in contents %}
+				<li>{{content.subject}}</li>
+				<li>{{content.content}}</li>
+				<li>{{content.publish_date}}</li>
+			
+			{%endfor%}	
+		</ul>
+		{% endif%}
+	</div>
+{% endblock%}
