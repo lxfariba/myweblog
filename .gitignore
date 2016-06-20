@@ -1,3 +1,14 @@
+.directory
+
+# django specific
+static
+media
+weblog_db
 *.pyc
-__pycach__/
-weblog_db/
+*__pycache__*
+
+# python and virtualenv specific
+env
+
+# Pycharm specific
+.idea
