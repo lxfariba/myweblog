@@ -1,6 +1,8 @@
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_DIR =os.path.abspath(os.path.dirname(__file__))
+FIXTURE_DIR = (os.path.join(PROJECT_DIR, 'fixtures'),)
 
 SECRET_KEY = '3-lmx+@s!k8!4+r(k39m696cp(bld8jr)ai$xt6ug*!!8x_j-%'
 
@@ -17,6 +19,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'weblog',
 ]
+
+
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -37,7 +41,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, "templates")
         ],
-        'APP_DIRS': False,
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

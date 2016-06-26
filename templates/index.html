@@ -6,13 +6,30 @@
 		<h3>Welcom!</h3>
 		{% if contents %}
 		<ul>
-			{%for content in contents %}
+			{%for content in contents.object_list %}
 				<li>{{content.subject}}</li>
 				<li>{{content.content}}</li>
 				<li>{{content.publish_date}}</li>
 			
 			{%endfor%}	
 		</ul>
+		<div class=pagination>
+			<ul>
+				{% if contents.has_previous%}
+					<li><a href="?page={{contents.previous_page_number}}">Previous </a></li>
+				{% endif%}
+				{% for pg in contents.paginator.page_range%}
+					{% if contents.number == pg %}
+						<li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+					{% else %}
+						<li><a href="?page={{ pg }}">{{ pg }}</a></li>
+					{% endif%}
+				{% endfor%}
+				{% if contents.has_next %}
+					<li><a href="?page={{contents.next_page_number}}">Next</a></li>
+				{% endif%}
+			</ul>
+		</div>
 		{% endif%}
 	</div>
 {% endblock%}
