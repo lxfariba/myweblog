@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div>
+        {% if content %}
+            <li>{{ content.subject }}</li>
+            <li>{{ content.content }}</li>
+            <li>{{ content.publish_date }}</li>
+        {% endif %}
+    </div>
+{% endblock %}

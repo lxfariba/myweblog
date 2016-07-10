@@ -7,9 +7,10 @@
 		{% if contents %}
 		<ul>
 			{%for content in contents.object_list %}
-				<li>{{content.subject}}</li>
+				<li><a target= "_blank" href="{% url 'post' content.id %}">{{content.subject}}</a></li>
 				<li>{{content.content}}</li>
 				<li>{{content.publish_date}}</li>
+
 			
 			{%endfor%}	
 		</ul>
