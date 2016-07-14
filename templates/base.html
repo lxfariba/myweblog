@@ -3,7 +3,11 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <title></title>
+    <title>
+        {% block title %}
+            یادداشت های تاخورده
+        {% endblock %}
+    </title>
     <link rel="stylesheet" href="{% static 'vendors/foundation-6.2.3-rtl/css/foundation.min.css' %}">
     <link rel="stylesheet" href="{% static 'styling.css' %}">
     {% block styles %}{% endblock %}
@@ -13,7 +17,9 @@
 <div class="expanded row mw__container">
     <header class="mw__header">
         <h1 class="mw__fancy_font">
-            یادداشت های تاخورده
+            <a href="/" class="mw__black_link">
+                یادداشت های تاخورده
+            </a>
         </h1>
         <hr>
 
@@ -35,6 +41,11 @@
                 </div>
                 <div class="mw__side_block_body">
                     <ul class="no-bullet">
+                        <li>
+                            <a href="/" class="mw__black_link">تمام مطالب</a>
+                            <span class="mw__attention_color badge">31</span>
+
+                        </li>
                         <li>
                             ماه جولای ۲۰۱۶
                             <span class="mw__attention_color badge">2</span>

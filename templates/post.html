@@ -1,11 +1,8 @@
 {% extends 'base.html' %}
+{% block title %}
+    {{ content.subject }}
+{% endblock %}
 
 {% block main %}
-    <div>
-        {% if content %}
-            <li>{{ content.subject }}</li>
-            <li>{{ content.content }}</li>
-            <li>{{ content.publish_date }}</li>
-        {% endif %}
-    </div>
+    {% include 'partial_post.html' with content=content full=1%}
 {% endblock %}

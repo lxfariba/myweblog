@@ -16,6 +16,11 @@
         </p>
     </header>
     <section>
-        {{ content.content|truncatewords:100 }}
+        {% if full %}
+            {{ content.content }}
+        {% else %}
+            {{ content.content|truncatewords:5 }}
+
+        {% endif %}
     </section>
 </article>

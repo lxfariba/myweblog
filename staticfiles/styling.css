@@ -17,6 +17,10 @@ body {
     font-family: BTabassom, monospace;
 
 }
+.mw__black_link {
+    color:black;
+
+}
 
 .mw__attention_color {
     background-color: #4C98E4;

@@ -6,7 +6,7 @@
         {% if contents %}
 
             {% for content in contents.object_list %}
-                {% include 'partial_post.html' with content=content %}
+                {% include 'partial_post.html' with content=content  %}
             {% endfor %}
 
             <div class=pagination>
