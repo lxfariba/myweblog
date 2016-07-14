@@ -6,26 +6,29 @@
         {% if contents %}
 
             {% for content in contents.object_list %}
-                {% include 'partial_post.html' with content=content  %}
+                {% include 'partial_post.html' with content=content %}
             {% endfor %}
 
-            <div class=pagination>
-                <ul>
-                    {% if contents.has_previous %}
-                        <li><a href="?page={{ contents.previous_page_number }}">Previous </a></li>
-                    {% endif %}
-                    {% for pg in contents.paginator.page_range %}
-                        {% if contents.number == pg %}
-                            <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
-                        {% else %}
-                            <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+            {% if contents.has_other_pages %}
+                <div class=pagination>
+                    <ul>
+                        {% if contents.has_previous %}
+                            <li><a href="?page={{ contents.previous_page_number }}">Previous </a></li>
                         {% endif %}
-                    {% endfor %}
-                    {% if contents.has_next %}
-                        <li><a href="?page={{ contents.next_page_number }}">Next</a></li>
-                    {% endif %}
-                </ul>
-            </div>
+                        {% for pg in contents.paginator.page_range %}
+                            {% if contents.number == pg %}
+                                <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+                            {% else %}
+                                <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if contents.has_next %}
+                            <li><a href="?page={{ contents.next_page_number }}">Next</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            {% endif %}
+
         {% endif %}
         <div>
         </div>
