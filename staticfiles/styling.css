@@ -3,9 +3,14 @@
     src: url('fonts/BTabassom.eot?#') format('eot'), /* IE6–8 */ url('fonts/BTabassom.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('fonts/BTabassom.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
 }
 
+@font-face {
+    font-family: 'BYekan';
+    src: url('fonts/BYekan.eot?#') format('eot'), /* IE6–8 */ url('fonts/BYekan.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('fonts/BYekan.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
 body {
     background-color: rgb(245, 245, 245);
-
+    font-family: BYekan, serif;
 }
 
 .mw__fancy_font {
@@ -36,7 +41,7 @@ body {
 .mw__side_block_body {
     background-color: rgb(241, 241, 241);
     padding: 7px;
-    border-bottom: solid thin rgba(224, 224, 224, 20);
+    border-bottom: solid thin rgba(224, 224, 224, 0.1);
 }
 
 .mw__side_block_body ul {
@@ -46,7 +51,34 @@ body {
 .mw__side_block_body ul li {
     padding-right: 7px;
     padding-top: 8px;
+}
 
+.mw__content {
+    margin-bottom: 75px;
+    padding-bottom: 10px;
+
+    padding-right: 10px;
+    border-right: solid rgba(76, 152, 228, 0.15) 7px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 1px;
+
+}
+
+.mw__content__header {
+
+}
+
+.mw__content__header a {
+    color:  rgba(76, 152, 228, 0.90) ;
+}
+
+.mw__content__header a:hover {
+    color:  rgba(76, 152, 228, 0.80) ;
+}
+
+
+.mw__content__header a:visited {
+    color:  rgba(76, 152, 228, 0.60) ;
 }
 
 

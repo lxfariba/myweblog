@@ -1,0 +1,21 @@
+{% comment %}
+    this template expect a Content object to be inside the context
+{% endcomment %}
+
+<article class="mw__content">
+    <header class="mw__content__header">
+        <h2>
+            <a href="{% url "post" content.id %}" title="{{ content.subject|truncatechars:15 }}">
+                {{ content.subject }}
+            </a>
+        </h2>
+
+        <p>
+            نوشته شده در
+            {{ content.publish_date }}
+        </p>
+    </header>
+    <section>
+        {{ content.content|truncatewords:100 }}
+    </section>
+</article>

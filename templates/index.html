@@ -3,17 +3,12 @@
 
 {% block main %}
     <div>
-        <h3>Welcom!</h3>
         {% if contents %}
-            <ul>
-                {% for content in contents.object_list %}
-                    <li><a target="_blank" href="{% url 'post' content.id %}">{{ content.subject }}</a></li>
-                    <li>{{ content.content|truncatechars:20 }}</li>
-                    <li>{{ content.publish_date }}</li>
 
+            {% for content in contents.object_list %}
+                {% include 'partial_post.html' with content=content %}
+            {% endfor %}
 
-                {% endfor %}
-            </ul>
             <div class=pagination>
                 <ul>
                     {% if contents.has_previous %}
@@ -33,13 +28,6 @@
             </div>
         {% endif %}
         <div>
-{#            {% if contents_list%}#}
-{#                {% for con in contents_list %}#}
-{#                    <ul>#}
-{#                        <li><a href="{{con.subject }}">July</a></li>#}
-{#                    </ul>#}
-{#            {% endfor %}#}
-{#        {% endif %}#}
         </div>
     </div>
 {% endblock %}
