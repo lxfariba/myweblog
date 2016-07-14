@@ -6,7 +6,7 @@ from django.db.models import Q
 
 
 def home(request):
-    content_list = Content.objects.filter(publish_date__range=['2016-07-01', '2016-08-01']).all().order_by('-id')
+    content_list = Content.objects.all().order_by('-id')
     paginator = Paginator(content_list, 5)
     try:
         page = int(request.GET.get('page', '1'))
@@ -19,7 +19,7 @@ def home(request):
 
     contents_list = Content.objects.filter(publish_date__range=['2016-07-01','2016-08-01'])
 
-    return render(request, 'index.html', {'contents':contents})
+    return render(request, 'index.html', {'contents':contents,'contents_list':contents_list})
 
 
 # def archive(request, arc):
