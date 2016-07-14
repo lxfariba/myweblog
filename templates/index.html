@@ -3,7 +3,7 @@
 
 {% block main %}
     <div>
-        {% if contents %}
+
 
             {% for content in contents.object_list %}
                 {% include 'partial_post.html' with content=content %}
@@ -29,8 +29,7 @@
                 </div>
             {% endif %}
 
-        {% endif %}
-        <div>
+         <div>
         </div>
     </div>
 {% endblock %}
