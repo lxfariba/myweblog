@@ -1,45 +1,39 @@
 {% extends 'base.html' %}
 
 
-{% block main%}
-	<div>
-		<h3>Welcom!</h3>
-		{% if contents %}
-		<ul>
-			{%for content in contents.object_list %}
-				<li><a target= "_blank" href="{% url 'post' content.id %}">{{content.subject}}</a></li>
-				<li>{{content.content|truncatechars:20}}</li>
-				<li>{{content.publish_date}}</li>
+{% block main %}
+    <div>
+        <h3>Welcom!</h3>
+        {% if contents %}
+            <ul>
+                {% for content in contents.object_list %}
+                    <li><a target="_blank" href="{% url 'post' content.id %}">{{ content.subject }}</a></li>
+                    <li>{{ content.content|truncatechars:20 }}</li>
+                    <li>{{ content.publish_date }}</li>
 
-			
-			{%endfor%}	
-		</ul>
-		<div class=pagination>
-			<ul>
-				{% if contents.has_previous%}
-					<li><a href="?page={{contents.previous_page_number}}">Previous </a></li>
-				{% endif%}
-				{% for pg in contents.paginator.page_range%}
-					{% if contents.number == pg %}
-						<li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
-					{% else %}
-						<li><a href="?page={{ pg }}">{{ pg }}</a></li>
-					{% endif%}
-				{% endfor%}
-				{% if contents.has_next %}
-					<li><a href="?page={{contents.next_page_number}}">Next</a></li>
-				{% endif%}
-			</ul>
-		</div>
-		{% endif%}
+
+                {% endfor %}
+            </ul>
+            <div class=pagination>
+                <ul>
+                    {% if contents.has_previous %}
+                        <li><a href="?page={{ contents.previous_page_number }}">Previous </a></li>
+                    {% endif %}
+                    {% for pg in contents.paginator.page_range %}
+                        {% if contents.number == pg %}
+                            <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+                        {% else %}
+                            <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if contents.has_next %}
+                        <li><a href="?page={{ contents.next_page_number }}">Next</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        {% endif %}
         <div>
-{#            {% if contents_list%}#}
-{#                {% for con in contents_list %}#}
-{#                    <ul>#}
-{#                        <li><a href="{{con.subject }}">July</a></li>#}
-{#                    </ul>#}
-{#            {% endfor %}#}
-{#        {% endif %}#}
+
         </div>
-	</div>
-{% endblock%}
+    </div>
+{% endblock %}
