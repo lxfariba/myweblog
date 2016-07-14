@@ -33,13 +33,13 @@
 		</div>
 		{% endif%}
         <div>
-{#            {% if contents_list%}#}
-{#                {% for con in contents_list %}#}
-{#                    <ul>#}
-{#                        <li><a href="{{con.subject }}">July</a></li>#}
-{#                    </ul>#}
-{#            {% endfor %}#}
-{#        {% endif %}#}
+            {% if contents_list%}
+                {% for con in contents_list %}
+                    <ul>
+                        <li><a href="">{{ con.subject }}</a></li>
+                    </ul>
+            {% endfor %}
+        {% endif %}
         </div>
 	</div>
 {% endblock%}
