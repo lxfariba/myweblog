@@ -8,7 +8,7 @@
 		<ul>
 			{%for content in contents.object_list %}
 				<li><a target= "_blank" href="{% url 'post' content.id %}">{{content.subject}}</a></li>
-				<li>{{content.content}}</li>
+				<li>{{content.content|truncatechars:20}}</li>
 				<li>{{content.publish_date}}</li>
 
 			
@@ -32,5 +32,14 @@
 			</ul>
 		</div>
 		{% endif%}
+        <div>
+            {% if contents_list%}
+{#                {% for con in contents_list %}#}
+                    <ul>
+                        <li><a href="{{con.subject }}">July</a></li>
+                    </ul>
+{#            {% endfor %}#}
+        {% endif %}
+        </div>
 	</div>
 {% endblock%}

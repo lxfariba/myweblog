@@ -21,8 +21,8 @@ from  weblog import views
 
 
 urlpatterns = [
-	url(r'^$',views.home , name='home'),
-    url(r'^post/(\d+)',views.post, name="post"),
+    url(r'^$', views.home, name='home'),
+    url(r'^post/(\d+)', views.post, name="post"),
     url(r'^admin/', admin.site.urls),
 ]
 
