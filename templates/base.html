@@ -1,13 +1,73 @@
-{% load staticfiles%}
+{% load static %}
 
 <!DOCTYPE html>
-<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
-		<div id=content style="background-color:lavender">
-			{% block main%}{%endblock%}
-		</div>
-	</body>
+<html lang="fa" dir="rtl">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="{% static 'vendors/foundation-6.2.3-rtl/css/foundation.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styling.css' %}">
+    {% block styles %}{% endblock %}
+
+</head>
+<body>
+<div class="expanded row mw__container">
+    <header class="mw__header">
+        <h1 class="mw__fancy_font">
+            یادداشت های تاخورده
+        </h1>
+        <hr>
+
+    </header>
+    <main class="row">
+        <section class="small-0 large-3 columns ">
+            <div class="row mw__side_block">
+                <div class="mw__side_block_header mw__fancy_font">
+
+                    <span
+                            data-tooltip=""
+                            aria-haspopup="true"
+                            class="has-tip"
+                            data-disable-hover='false'
+                            tabindex="1"
+                            title="منظور همان آرشیو است ">
+                    زونکن
+                    </span>
+                </div>
+                <div class="mw__side_block_body">
+                    <ul class="no-bullet">
+                        <li>
+                            ماه جولای ۲۰۱۶
+                            <span class="mw__attention_color badge">2</span>
+                        </li>
+                        <li>
+                            ماه جون ۲۰۱۶
+                            <span class="mw__attention_color badge">12</span>
+                        </li>
+                        <li>
+                            ماه می ۲۰۱۶
+                            <span class="mw__attention_color badge">10</span>
+                        </li>
+                        <li>
+                            ماه مارس ۲۰۱۶
+                            <span class="mw__attention_color badge">7</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="small-12 large-9 columns">
+            {% block main %}{% endblock %}
+        </section>
+    </main>
+</div>
+
+<script type="text/javascript" src="{% static 'vendors/what-input-3.0.0/what-input.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendors/jquery-2.2.2/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendors/foundation-6.2.3-rtl/js/foundation.min.js' %}"></script>
+
+<!--[if lte IE 8]>
+    <script src="{% static 'vendors/what-input-3.0.0/lte-IE8.js' %}"></script>
+<![endif]-->
+{% block scripts %}{% endblock %}
+</body>
 </html> 

@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'BTabassom';
+    src: url('fonts/BTabassom.eot?#') format('eot'), /* IE6–8 */ url('fonts/BTabassom.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('fonts/BTabassom.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+body {
+    background-color: rgb(245, 245, 245);
+
+}
+
+.mw__fancy_font {
+    font-family: BTabassom, monospace;
+
+}
+
+.mw__attention_color {
+    background-color: #4C98E4;
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.mw__header h1 {
+    width: 33%;
+    text-align: center;
+    margin: auto;
+}
+
+.mw__side_block_header {
+    font-size: 200%;
+    margin-top: 0;
+    text-align: center;
+    border-radius: 3px;
+    background-color: rgb(234, 234, 234);
+}
+
+.mw__side_block_body {
+    background-color: rgb(241, 241, 241);
+    padding: 7px;
+    border-bottom: solid thin rgba(224, 224, 224, 20);
+}
+
+.mw__side_block_body ul {
+    padding-right: 7px;
+}
+
+.mw__side_block_body ul li {
+    padding-right: 7px;
+    padding-top: 8px;
+
+}
+
+
