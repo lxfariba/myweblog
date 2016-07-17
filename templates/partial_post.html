@@ -17,9 +17,9 @@
     </header>
     <section>
         {% if full %}
-            {{ content.content }}
+            {{ content.content|linebreaksbr }}
         {% else %}
-            {{ content.content|truncatewords:50 }}
+            {{ content.content|linebreaksbr|truncatewords:50 }}
 
         {% endif %}
     </section>
