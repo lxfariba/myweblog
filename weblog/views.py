@@ -1,25 +1,26 @@
 from django.shortcuts import render
 from weblog.models import Content
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
-from datetime import date
-from django.db.models import Q
+from weblog.services import convert_month_name_to_date_range
 
 
 def home(request):
-    content_list = Content.objects.all().order_by('-id')
+    filters = {}
+    if 'month' in request.GET:
+        try:
+            date_range = convert_month_name_to_date_range(request.GET['month'])
+            filters["publish_date__range"] = date_range
+        except ValueError:
+            # invalid value has been provided for month so ignoring the parameter
+            pass
+    page = int(request.GET.get('page', '1'))
+    content_list = Content.objects.filter(**filters).all().order_by('-id')
     paginator = Paginator(content_list, 5)
-    try:
-        page = int(request.GET.get('page', '1'))
-    except:
-        page = 1
     try:
         contents = paginator.page(page)
     except(EmptyPage, InvalidPage):
         contents = paginator.page(paginator.num_pages)
-
-    contents_list = Content.objects.filter(publish_date__range=['2016-07-01','2016-08-01'])
-
-    return render(request, 'index.html', {'contents':contents,'contents_list':contents_list})
+    return render(request, 'index.html', {'contents': contents, 'contents_list': content_list})
 
 
 # def archive(request, arc):
@@ -28,6 +29,6 @@ def home(request):
 #     return render(request, 'archive.html', {'content':content, 'arch':arch} )
 
 
-def post(request,cid):
+def post(request, cid):
     content = Content.objects.get(id=cid)
-    return render(request, 'post.html', {'content':content})
+    return render(request, 'post.html', {'content': content})
