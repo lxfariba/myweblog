@@ -16,11 +16,17 @@
         </p>
     </header>
     <section>
+
         {% if full %}
-            {{ content.content|linebreaksbr }}
+            {% autoescape off %}
+                {{ content.content|linebreaksbr }}
+            {% endautoescape %}
         {% else %}
-            {{ content.content|linebreaksbr|truncatewords:50 }}
+            {% autoescape off %}
+                {{ content.content|linebreaksbr|truncatewords:50 }}
+            {% endautoescape %}
 
         {% endif %}
+
     </section>
 </article>
