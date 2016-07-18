@@ -1,3 +1,4 @@
+{% load weblog_tags %}
 {% comment %}
     this template expect a Content object to be inside the context
 {% endcomment %}
@@ -19,11 +20,11 @@
 
         {% if full %}
             {% autoescape off %}
-                {{ content.content|linebreaksbr }}
+                {{ content.content|removehr }}
             {% endautoescape %}
         {% else %}
             {% autoescape off %}
-                {{ content.content|linebreaksbr|truncatewords:50 }}
+                {{ content.content|summary }}
             {% endautoescape %}
 
         {% endif %}
